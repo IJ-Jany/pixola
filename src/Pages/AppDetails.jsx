@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import useApps from '../hooks/useApp';
 import { FaDownload } from "react-icons/fa6";
@@ -36,13 +36,13 @@ const AppDetails = () => {
 
     return (
     <div>
-        <div className='py-6 flex items-center justify-between gap-10'>
-        <img className='w-[250px] border-1 border-gray-400' src={image} alt="" />
+        <div className='py-6 flex flex-col md:flex-row items-center justify-between gap-10'>
+        <img className='md:w-[250px] w-[100px] border-1 border-gray-400' src={image} alt="" />
         <div>
             <h1 className='font-bold text-2xl'>{title}</h1>
             <h5 className='text-sm text-gray-500'>Developed by <span className='text-purple-700 font-bold'>{companyName}</span></h5>
             <hr />
-            <div className=' flex gap-8 py-4'>
+            <div className=' flex flex-col md:flex-row gap-8 py-4'>
                 <div>
                     <img src={downloadImg} alt="" />
                     <p className='text-gray-500'>Downloads</p>
