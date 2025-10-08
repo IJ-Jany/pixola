@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState ,useEffect} from 'react';
 import { useParams } from 'react-router';
 import useApps from '../hooks/useApp';
 import { FaDownload } from "react-icons/fa6";
@@ -11,9 +11,11 @@ import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 const AppDetails = () => {
     const {id} = useParams()
     const {apps,loading} = useApps()
+    const[installed,setInstalled] = useState(false)
+      if(loading) return <span className="loading loading-spinner text-primary"></span>
     const app = apps.find(p=> String(p.id) === id)
     const {title,image ,downloads,ratingAvg,reviews,companyName,description,ratings} = app || {}
-    if(loading) return <p>Loading</p>
+
     const handleInstall = () => {
         const exist = localStorage.getItem('install')
         let List = []
@@ -28,28 +30,11 @@ const AppDetails = () => {
         }
     localStorage.setItem('install',JSON.stringify(List))
     alert('App installed successfully')
+    setInstalled(true)
     }
 
 
     return (
-    //    <div className='p-5 border-gray-400 border-2'>
-    //               <figure className='h-48 overflow-hidden items-center flex hover:scale-105'>
-    //                 <img className='w-full object-cover' src={image} alt="" />
-    //               </figure>
-    //                <h1 className='font-semibold py-4'>{title}</h1>
-    //                <div className='flex justify-between gap-2'>
-    //                    <div className='text-green-300 bg-green-100 flex items-center py-1 px-2 '>
-    //                        <FaDownload />
-    //                        <span >{downloads}</span>
-    //                    </div>
-    //                       <div className='text-orange-500 bg-amber-100 flex items-center py-1 px-2'>
-    //                       <FaStar />
-    //                        <span>{ratingAvg}</span>
-    //                    </div>
-    //                </div>
-    //                <button className='bg-purple-400 text-white p-4' onClick={handleInstall}>Install/uninstall</button>
-    //                <p>reviews:{reviews}</p>
-    //            </div>
     <div>
         <div className='py-6 flex items-center justify-between gap-10'>
         <img className='w-[250px] border-1 border-gray-400' src={image} alt="" />
@@ -75,7 +60,7 @@ const AppDetails = () => {
                 </div>
             </div>
             <hr />
-            <button className='bg-green-400 text-white py-2 px-3 mt-4' onClick={handleInstall}>Install Now</button>
+            <button className='bg-green-400 text-white py-2 px-3 mt-4' disabled={installed} onClick={handleInstall}>{installed ? 'Uninstall' : "Install Now"}</button>
         </div>
         </div>
         <hr />

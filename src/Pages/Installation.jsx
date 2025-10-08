@@ -14,8 +14,7 @@ const Installation = () => {
 
     if(!install.length) return <p> No apps Found</p>
 
-    const sortedItem =(
-         ()=> {
+    const sortedItem =( ()=> {
         if(sort === 'asc'){
             return [...install].sort((a,b)=>a.downloads - b.downloads)
         }else if(sort === 'desc'){
@@ -31,8 +30,6 @@ const Installation = () => {
             setInstall(List)
     localStorage.setItem('install',JSON.stringify(List))
     }
-
-    const totalRating = {}
     return (
         <div>
             <h1 className='font-bold text-3xl text-center'>Your Installed Apps</h1>
@@ -68,7 +65,7 @@ const Installation = () => {
                                 </div>
                             </div>
                         </div>
-                        <button onClick={()=> handleUninstall(p.id)} className='bg-green-400 text-white py-2 px-3'>Install</button>
+                        <button onClick={()=> handleUninstall(p.id)} className='bg-green-400 text-white py-2 px-3'>Uninstall</button>
                     </div>
                 )
             }

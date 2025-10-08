@@ -5,19 +5,22 @@ import notfoundimg from '../assets/App-Error.png'
 import { NavLink } from 'react-router';
 
 const Apps = () => {
-    const {apps} = useApps('apps')
+    const {apps,loading} = useApps('apps')
+    
     const[search,setSearch] = useState('')
+      if(loading) return <span className="loading loading-spinner text-primary"></span>
     const term = search.trim().toLocaleLowerCase()
     const searchApps = term ? apps.filter(app=>
      app.title && app.title.toLocaleLowerCase().includes(term)
     ) : apps
-    console.log(searchApps)
+
+
     return (
         <div>
             <h1 className='text-center font-bold text-4xl'>Our All Applications</h1>
             <p className='text-center py-4 text-gray-500'>Explore All Apps on the Market developed by us. We code for Millions</p>
             <div className='flex flex-col md:flex-row items-center justify-between mb-8'>
-              <h1 className='font-bold'>({apps.length})Apps Found</h1>
+              <h1 className='font-bold'>({searchApps.length})Apps Found</h1>
               <div>
                 <label className="input">
   <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

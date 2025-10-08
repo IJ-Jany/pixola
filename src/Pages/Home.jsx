@@ -7,8 +7,7 @@ import { Link } from 'react-router';
 import LoadSpinner from '../Components/LoadSpinner';
 
 const Home = () => {
-    const {apps,loading,error} = useApps()
-    console.log(apps)
+    const {apps} = useApps()
     const featuredApps = apps.slice(0,8)
     return (
 
