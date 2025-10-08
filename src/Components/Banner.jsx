@@ -8,7 +8,9 @@ const Banner = () => {
         <div>
 
 
-            <h1 className='md:text-5xl font-bold  text-center text-3xl w-[280px] md:w-full'>We Build <br /> <span className='text-purple-600 mr-4'>Productive</span>Apps</h1>
+            <div className='flex justify-center'>
+                <h1 className='md:text-5xl  font-bold  text-center text-3xl w-[280px] md:w-full'>We Build <br /> <span className='text-purple-600 mr-4'>Productive</span>Apps</h1>
+            </div>
 
             <p className='text-center text-gray-500 my-4'>At pixola, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
 

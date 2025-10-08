@@ -4,6 +4,7 @@ import { Github } from 'lucide-react';
 
 const Navbar = () => {
     return (
+  
      <div className="navbar bg-base-100 shadow-sm">
     <div className="navbar-start">
     <div className="dropdown">
@@ -20,7 +21,7 @@ const Navbar = () => {
     </div>
     <div className='flex items-center'>
       <img className='w-[35px]' src="./logo.png" alt="" />
- <a className="btn btn-ghost text-xl text-purple-700">Pixola</a>
+ <NavLink  to="/" className="btn btn-ghost text-xl text-purple-700">Pixola</NavLink>
     </div>
    
   </div>
@@ -36,6 +37,7 @@ const Navbar = () => {
     <Github /></span><a href="https://github.com/IJ-Jany">Contribute</a></button>
   </div>
 </div>
+
     );
 };
 
