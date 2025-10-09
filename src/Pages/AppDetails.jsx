@@ -7,6 +7,7 @@ import downloadImg from '../assets/icon-downloads.png'
 import ratingImg from '../assets/icon-ratings.png'
 import reviewImg from '../assets/icon-review.png'
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AppDetails = () => {
     const {id} = useParams()
@@ -29,7 +30,7 @@ const AppDetails = () => {
             List.push(app)
         }
     localStorage.setItem('install',JSON.stringify(List))
-    alert('App installed successfully')
+    toast('App installed successfully')
     setInstalled(true)
     }
 
@@ -84,6 +85,7 @@ const AppDetails = () => {
         <h1 className='font-bold text-2xl'>Description</h1>
         <p className='text-gray-500'>{description}</p>
         </div>
+        <ToastContainer/>
     </div>
     );
 };
